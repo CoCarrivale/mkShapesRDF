@@ -5,11 +5,11 @@ structure = {}
 # keys here must match keys in samples.py
 #
 structure['SSWW']  = {
-                  'isSignal' : 1,
+                  'isSignal' : 0,
                   'isData'   : 0
                   }
 structure['WZ_EWK']  = {
-                  'isSignal' : 0, # boh 
+                  'isSignal' : 1,
                   'isData'   : 0
                   }
 structure['WpWp_QCD']  = {
