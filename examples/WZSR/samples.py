@@ -291,8 +291,7 @@ for _, sd in DataRun:
 
 samples['DATA'] = {
   'name': [],
-  #'weight': 'LepWPCut*METFilter_DATA',
-  'weight': 'LepWPCut*METFilter_DATA*0.', #li azzero nella SR
+  'weight': 'LepWPCut*METFilter_DATA',
   'weights': [],
   'isData': ['all'],
   'FilesPerJob': 50

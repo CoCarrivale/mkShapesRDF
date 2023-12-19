@@ -37,7 +37,7 @@ nuisancesFile = 'nuisances.py'
 # luminosity to normalize to (in 1/fb)
 lumi = 59.74
 
-plotPath = 'plots_' + tag
+plotPath = '/eos/user/c/ccarriva/www/plots_' + tag
 outputDirDatacard = 'datacards'
 
 
