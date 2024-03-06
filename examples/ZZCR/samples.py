@@ -146,10 +146,8 @@ samples['WZ_QCD'] = {
 
 
 samples['ZZ'] = {  'name'  :   nanoGetSampleFiles(mcDirectory,'ZZTo2L2Nu')
-                            # + nanoGetSampleFiles(directory,'ZZTo2L2Nu_ext2')
                              + nanoGetSampleFiles(mcDirectory,'ZZTo2Q2L_mllmin4p0')
                              + nanoGetSampleFiles(mcDirectory,'ZZTo4L'),
-                    # 'weight' :  XSWeight+'*'+SFweight+'*samesign_requirement*((nLepton==2)*PromptGenLepMatch2l + (nLepton==3)*PromptGenLepMatch3l + (nLepton>3)*PromptGenLepMatch4l)*'+METFilter_MC,
                     'weight' :  XSWeight+'*'+SFweight+'*((nLepton==2)*PromptGenLepMatch2l + (nLepton==3)*PromptGenLepMatch3l + (nLepton>3)*PromptGenLepMatch4l)*'+METFilter_MC,
                     'FilesPerJob' : 3,
                  }
@@ -179,6 +177,7 @@ samples['tZq'] = {
 
 
 files = nanoGetSampleFiles(mcDirectory, 'ZGToLLG') + \
+        nanoGetSampleFiles(mcDirectory, 'Wg_AMCNLOFXFX_01J') + \
         nanoGetSampleFiles(mcDirectory, 'WZTo3LNu_mllmin0p1')
 samples['VgS1'] = {
     'name': files,
@@ -189,9 +188,10 @@ samples['VgS1'] = {
         'H': 'gstarHigh'
     }
 }
-#addSampleWeight(samples, 'VgS1', 'WGJJ', '(Gen_ZGstar_mass > 0 && Gen_ZGstar_mass < 0.1)')
+
 addSampleWeight(samples, 'VgS1', 'ZGToLLG', '(Gen_ZGstar_mass > 0)')
 addSampleWeight(samples, 'VgS1', 'WZTo3LNu_mllmin0p1', '(Gen_ZGstar_mass > 0.1 && Gen_ZGstar_mass<4)')
+addSampleWeight(samples, 'VgS1', 'Wg_AMCNLOFXFX_01J',  '(Gen_ZGstar_mass > 0 && Gen_ZGstar_mass <= 0.1)')
 
 ### Wrong-sign
 files = nanoGetSampleFiles(mcDirectory, 'WWTo2L2Nu') + \
@@ -209,15 +209,6 @@ samples['WW'] = {
     'weight': mcCommonWeightOS,
     'FilesPerJob': 17,
 }
-
-#files = nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') + \
-#        nanoGetSampleFiles(mcDirectory, 'ST_tW_top') + \
-#        nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop')
-#samples['Top'] = {
-#    'name': files,
-#    'weight': mcCommonWeightOS,
-#    'FilesPerJob': 3,
-#}
 
 ptllDYW_NLO = '(0.87*(gen_ptll<10)+(0.379119+0.099744*gen_ptll-0.00487351*gen_ptll**2+9.19509e-05*gen_ptll**3-6.0212e-07*gen_ptll**4)*(gen_ptll>=10 && gen_ptll<45)+(9.12137e-01+1.11957e-04*gen_ptll-3.15325e-06*gen_ptll**2-4.29708e-09*gen_ptll**3+3.35791e-11*gen_ptll**4)*(gen_ptll>=45 && gen_ptll<200) + 1*(gen_ptll>200))'
 ptllDYW_LO = '((0.632927+0.0456956*gen_ptll-0.00154485*gen_ptll*gen_ptll+2.64397e-05*gen_ptll*gen_ptll*gen_ptll-2.19374e-07*gen_ptll*gen_ptll*gen_ptll*gen_ptll+6.99751e-10*gen_ptll*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll>0)*(gen_ptll<100)+(1.41713-0.00165342*gen_ptll)*(gen_ptll>=100)*(gen_ptll<300)+1*(gen_ptll>=300))'
@@ -259,7 +250,6 @@ samples['VVV'] = {
 
 samples['Fake_lep'] = {
   'name': [],
-  #'weight': 'METFilter_DATA*fakeW*samesign_requirement',
   'weight': 'METFilter_DATA*fakeW',
   'weights': [],
   'isData': ['all'],
@@ -291,7 +281,6 @@ for _, sd in DataRun:
 
 samples['DATA'] = {
   'name': [],
-  #'weight': 'LepWPCut*METFilter_DATA*samesign_requirement',
   'weight': 'LepWPCut*METFilter_DATA',
   'weights': [],
   'isData': ['all'],
@@ -317,6 +306,3 @@ for _, sd in DataRun:
 
     samples['DATA']['name'].extend(files)
     addSampleWeight(samples, 'DATA', datatag, DataTrig[pd])
-
-
-#samples = {k:v for k,v in samples.items() if k in ['ZZ']}
