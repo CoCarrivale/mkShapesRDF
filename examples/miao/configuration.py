@@ -1,7 +1,7 @@
 # example of configuration file
 treeName= 'Events'
 date='_2018_31082022'
-tag = 'nonPromptCR'
+tag = 'miao'
 runnerFile = 'default'
 
 # used by mkShape to define output directory for root files

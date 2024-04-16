@@ -1,7 +1,7 @@
 # example of configuration file
 treeName= 'Events'
 date='_2018_31082022'
-tag = 'tVqCR'
+tag = 'WZQCD'
 runnerFile = 'default'
 
 # used by mkShape to define output directory for root files
@@ -43,7 +43,6 @@ outputDirDatacard = 'datacards'
 
 minRatio = 0.5
 maxRatio = 1.5
-plotPath      = "plots__{}".format(tag)
 
 
 mountEOS=[]

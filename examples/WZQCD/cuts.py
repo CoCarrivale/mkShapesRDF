@@ -2,7 +2,7 @@
 cuts = {}
 # ----------------------------------
 # Jet and MET VBS-like selections
-preselections = 'MET_pt > 30 && Alt(CleanJet_pt,0,-9999.) >50 && Alt(CleanJet_pt,1,-9999.) >50 && abs(detajj) > 2.5 && mjj > 500'
+preselections = 'MET_pt > 30 && Alt(CleanJet_pt,0,-9999.) >50 && Alt(CleanJet_pt,1,-9999.) >50 && abs(detajj) > 2.5 && mjj < 500 && mjj > 200'
 
 # ----------------------------------
 
@@ -35,4 +35,3 @@ ztag ='WH3l_mlll > 100 \
 
 # ----------------------------------
 cuts['WZSR']= wz +' && ' + wz_zmass + ' && bVeto &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'
-#cuts['WZSR']= wz

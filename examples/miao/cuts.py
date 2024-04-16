@@ -5,7 +5,6 @@ cuts = {}
 preselections = 'MET_pt > 30 && Alt(CleanJet_pt,0,-9999.) >50 && Alt(CleanJet_pt,1,-9999.) >50 && abs(detajj) > 2.5 && mjj > 500'
 
 # ----------------------------------
-
 # lepton selections for WZ
 wz = '(nLepton>2 && Alt(Lepton_pt,3,0.)<10)'
 #
@@ -30,9 +29,6 @@ ztag ='WH3l_mlll > 100 \
 && ((abs(mll - 91) < 15 && Alt(Lepton_pdgId,0,-9999) * Alt(Lepton_pdgId,1,-9999) <0) \
 || (abs(mllOneThree - 91) < 15 && Alt(Lepton_pdgId,0,-9999) * Alt(Lepton_pdgId,2,-9999) < 0) \
 || (abs(mllTwoThree - 91) < 15 && Alt(Lepton_pdgId,1,-9999) * Alt(Lepton_pdgId,2,-9999) < 0))'
-# b veto, already defined in aliases, here I just recall the definition
-# bVeto = '(Sum(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.4184) == 0)'
 
 # ----------------------------------
-cuts['WZSR']= wz +' && ' + wz_zmass + ' && bVeto &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'
-#cuts['WZSR']= wz
+cuts['tVqCR']= wz +' && ' + wz_zmass + ' && bReq &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'
