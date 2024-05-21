@@ -51,18 +51,18 @@ palette2 = {
 
 groupPlot = {}
 
-groupPlot['WZ_EFT_EWK']  = {
-    'nameHR':"WZ EFT EWK", 
+groupPlot['WZ_cW']  = {
+    'nameHR':"WZ_cW", 
     'isSignal':0, 
     #'color':palette["Peach"], 
     'color': palette2["Swamp"],
-    'samples':['WZ_EFT_EWK'],
+    'samples':['WZ_cW'],
     'fill': 1001
 }
 
 plot = {}
 
-plot['WZ_EFT_EWK']  = {
+plot['WZ_cW']  = {
     'color':Violet + 10, 
     'isSignal':0, 
     'isData':0, 

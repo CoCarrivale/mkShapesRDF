@@ -45,15 +45,6 @@ variables['mll']  = {   'name': 'mll',
                         'fold' : 3,
                         }
 
-variables['mll_mjj']  = {   'name': 'mll:mjj',
-                            'range' : ([500,800,1200,1800,3000],[20,80,140,240,600]),
-                            'xaxis' : 'mll:mjj [GeV]',
-                            'fold' : 3,
-                            'doWeight' : 1,
-                            'binX'     : 4,
-                            'binY'     : 4
-                            }
-
 variables['detajj']  = {  'name': 'detajj',
                           'range': (16,0.0,8.0),
                           'xaxis': 'detajj',
@@ -74,8 +65,8 @@ variables['etaj2'] = {  'name': 'Alt(Jet_eta,1,-9999.)',
                         'fold': 3
                         }
 
-variables['met']  = {   'name': 'MET_pt',            
-                        'range' : (10,0,200),       
+variables['met']  = {   'name': 'MET_pt',                 
+                        'range': ([30,40,50,70,100, 140, 180, 240, 300, 400],),
                         'xaxis' : 'met [GeV]', 
                         'fold' : 3
                         }
@@ -92,4 +83,4 @@ variables['Zlep2']  = {  'name': '(Alt(Lepton_eta,1,-9999.) - (Alt(Jet_eta,0,-99
                          'fold': 3
                          }
 
-variables = {k:v for k,v in variables.items() if k in ['events','ptj1','ptj2','ptl1','ptl2','mjj','mll','mll_mjj','detajj','etaj1','etaj2','met','Zlep1','Zlep2']}
+variables = {k:v for k,v in variables.items() if k in ['events','ptj1','ptj2','ptl1','ptl2','mjj','mll','mll_mjj','detajj','etaj1','etaj2','met','Zlep1','Zlep2','WH3l_mlll']}

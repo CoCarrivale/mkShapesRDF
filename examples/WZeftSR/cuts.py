@@ -19,20 +19,30 @@ triple_charge_wz = '((abs(Alt(Lepton_pdgId,0,-9999))==11 && Alt(Electron_tightCh
 || abs(Alt(Lepton_pdgId,0,-9999))==13) && ((abs(Alt(Lepton_pdgId,1,-9999))==11 && Alt(Electron_tightCharge,Lepton_electronIdx[1],-9999)==2) \
 || abs(Alt(Lepton_pdgId,1,-9999))==13) && ((abs(Alt(Lepton_pdgId,2,-9999))==11 && Alt(Electron_tightCharge,Lepton_electronIdx[2],-9999)==2) \
 || abs(Alt(Lepton_pdgId,2,-9999))==13)'
+
 # zeppenfeld variable
 zlep_wz='\
 (abs((Alt(Lepton_eta,0,-9999.) - (Alt(CleanJet_eta,0,-9999.)+Alt(CleanJet_eta,1,-9999.))/2)/abs(detajj)) < 1.0) \
 &&(abs((Alt(Lepton_eta,1,-9999.) - (Alt(CleanJet_eta,0,-9999.)+Alt(CleanJet_eta,1,-9999.))/2)/abs(detajj)) < 1.0) \
 &&(abs((Alt(Lepton_eta,2,-9999.) - (Alt(CleanJet_eta,0,-9999.)+Alt(CleanJet_eta,1,-9999.))/2)/abs(detajj)) < 1.0)'
+# Z tag Wminus
+ztag_Wminus ='WH3l_mlll > 100 \
+&& abs(Alt(Lepton_pdgId,0,-9999) + Alt(Lepton_pdgId,1,-9999) + Alt(Lepton_pdgId,2,-9999)) < 20 \
+&& (((abs(mll - 91) < 15 && Alt(Lepton_pdgId,0,-9999) * Alt(Lepton_pdgId,1,-9999) <0) && (Alt(Lepton_pdgId,2,-9999)==11 || Alt(Lepton_pdgId,2,-9999)==13)) \
+|| ((abs(mllOneThree - 91) < 15 && Alt(Lepton_pdgId,0,-9999) * Alt(Lepton_pdgId,2,-9999) < 0) && (Alt(Lepton_pdgId,1,-9999)==11 || Alt(Lepton_pdgId,1,-9999)==13)) \
+|| ((abs(mllTwoThree - 91) < 15 && Alt(Lepton_pdgId,1,-9999) * Alt(Lepton_pdgId,2,-9999) < 0) && (Alt(Lepton_pdgId,0,-9999)==11 || Alt(Lepton_pdgId,0,-9999)==13)))'
 # Z tag
 ztag ='WH3l_mlll > 100 \
 && abs(Alt(Lepton_pdgId,0,-9999) + Alt(Lepton_pdgId,1,-9999) + Alt(Lepton_pdgId,2,-9999)) < 20 \
 && ((abs(mll - 91) < 15 && Alt(Lepton_pdgId,0,-9999) * Alt(Lepton_pdgId,1,-9999) <0) \
 || (abs(mllOneThree - 91) < 15 && Alt(Lepton_pdgId,0,-9999) * Alt(Lepton_pdgId,2,-9999) < 0) \
 || (abs(mllTwoThree - 91) < 15 && Alt(Lepton_pdgId,1,-9999) * Alt(Lepton_pdgId,2,-9999) < 0))'
+
 # b veto, already defined in aliases, here I just recall the definition
 # bVeto = '(Sum(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.4184) == 0)'
 
 # ----------------------------------
 cuts['WZSR']= wz +' && ' + wz_zmass + ' && bVeto &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'
 #cuts['WZSR']= wz
+
+
