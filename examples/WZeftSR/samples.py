@@ -381,10 +381,10 @@ samples['VgS1'] = {
     'name': files,
     'weight': mcCommonWeight + ' * (gstarLow * 0.94 + gstarHigh * 1.14)',
     'FilesPerJob': 4,
-    'subsamples': {
-        'L': 'gstarLow',
-        'H': 'gstarHigh'
-    }
+#    'subsamples': {
+#        'L': 'gstarLow',
+#        'H': 'gstarHigh'
+#    }
 }
 
 addSampleWeight(samples, 'VgS1', 'ZGToLLG', '(Gen_ZGstar_mass > 0)')

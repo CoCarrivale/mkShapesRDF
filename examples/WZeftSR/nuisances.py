@@ -65,7 +65,7 @@ nuisances['fake_syst'] = {
     'name': 'CMS_fake_syst_em',
     'type': 'lnN',
     'samples': {
-        'Fake': '1.3'
+        'Fake_lep': '1.3'
     },
    #'group': 'fake',
 }
@@ -75,7 +75,7 @@ nuisances['fake_ele'] = {
     'kind': 'weight',
     'type': 'shape',
     'samples': {
-        'Fake': ['fakeWEleUp', 'fakeWEleDown'],
+        'Fake_lep': ['fakeWEleUp', 'fakeWEleDown'],
     },
    #'group': 'fake',
 #    'AsLnN': '1'
@@ -86,7 +86,7 @@ nuisances['fake_ele_stat'] = {
     'kind': 'weight',
     'type': 'shape',
     'samples': {
-        'Fake': ['fakeWStatEleUp', 'fakeWStatEleDown']
+        'Fake_lep': ['fakeWStatEleUp', 'fakeWStatEleDown']
     },
    #'group': 'fake',
 #    'AsLnN': '1'
@@ -97,7 +97,7 @@ nuisances['fake_mu'] = {
     'kind': 'weight',
     'type': 'shape',
     'samples': {
-        'Fake': ['fakeWMuUp', 'fakeWMuDown'],
+        'Fake_lep': ['fakeWMuUp', 'fakeWMuDown'],
     },
    #'group': 'fake',
 #    'AsLnN': '1'
@@ -108,14 +108,15 @@ nuisances['fake_mu_stat'] = {
     'kind': 'weight',
     'type': 'shape',
     'samples': {
-        'Fake': ['fakeWStatMuUp', 'fakeWStatMuDown'],
+        'Fake_lep': ['fakeWStatMuUp', 'fakeWStatMuDown'],
     },
    #'group': 'fake',
 #    'AsLnN': '1'
 }
-'''
+
 ### B-tagger
 # Fixed BTV SF variations
+'''
 for flavour in ['bc', 'light']:
     for corr in ['uncorrelated', 'correlated']:
         btag_syst = [f'btagSF{flavour}_up_{corr}/btagSF{flavour}', f'btagSF{flavour}_down_{corr}/btagSF{flavour}']
@@ -130,11 +131,9 @@ for flavour in ['bc', 'light']:
             'type': 'shape',
             'samples': dict((skey, btag_syst) for skey in mc),
         }
-
-for shift in ['jes', 'lf', 'hf', 'hfstats1', 'hfstats2', 'lfstats1', 
-'lfstats2', 'cferr1', 'cferr2']:
-    btag_syst = ['(btagSF%sup)/(btagSF)' % shift, 
-'(btagSF%sdown)/(btagSF)' % shift]
+'''
+for shift in ['jes', 'lf', 'hf', 'hfstats1', 'hfstats2', 'lfstats1', 'lfstats2', 'cferr1', 'cferr2']:
+    btag_syst = ['(btagSF%sup)/(btagSF)' % shift, '(btagSF%sdown)/(btagSF)' % shift]
 
     name = 'CMS_btag_%s' % shift
     if 'stats' in shift:
@@ -147,7 +146,7 @@ for shift in ['jes', 'lf', 'hf', 'hfstats1', 'hfstats2', 'lfstats1',
         'type': 'shape',
         'samples': dict((skey, btag_syst) for skey in mc),
     }
-'''
+
 ##### Trigger Efficiency
 #trig_syst = ['((TriggerEffWeight_2l_u)/(TriggerEffWeight_2l))*(TriggerEffWeight_2l>0.02) + (TriggerEffWeight_2l<=0.02)','(TriggerEffWeight_2l_d)/(TriggerEffWeight_2l)']
 trig_syst = ['TriggerSFWeight_2l_u/TriggerSFWeight_2l', 'TriggerSFWeight_2l_d/TriggerSFWeight_2l']
@@ -161,7 +160,7 @@ nuisances['trigg'] = {
 }
 
 ##### Electron Efficiency and energy scale
-'''
+
 nuisances['eff_e'] = {
     'name': 'CMS_eff_e_2018',
     'skipCMS' : 1,
@@ -169,7 +168,7 @@ nuisances['eff_e'] = {
     'type': 'shape',
     'samples': dict((skey, ['SFweightEleUp', 'SFweightEleDown']) for skey in mc)
 }
-'''
+
 ### first bsm
 
 nuisances['electronpt'] = {
@@ -199,7 +198,7 @@ nuisances['electronpt_bsm'] = {
 }
 '''
 ##### Muon Efficiency and energy scale
-'''
+
 nuisances['eff_m'] = {
     'name': 'CMS_eff_m_2018',
     'skipCMS' : 1,
@@ -207,7 +206,7 @@ nuisances['eff_m'] = {
     'type': 'shape',
     'samples': dict((skey, ['SFweightMuUp', 'SFweightMuDown']) for skey in mc)
 }
-'''
+
 ### second bsm
 
 nuisances['muonpt'] = {
@@ -235,7 +234,7 @@ nuisances['muonpt_bsm'] = {
     'folderDown': makeMCDirectory2('MupTdo_suffix'),
     'AsLnN': '0'
 }
-
+'''
 ### PU ID SF uncertainty
 puid_syst = ['Jet_PUIDSF_up/Jet_PUIDSF', 'Jet_PUIDSF_down/Jet_PUIDSF']
 
@@ -246,7 +245,7 @@ nuisances['jetPUID'] = {
     'type': 'shape',
     'samples': dict((skey, puid_syst) for skey in mc)
 }
-
+'''
 ##### Jet energy scale
 
 jes_systs = 

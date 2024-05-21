@@ -126,14 +126,14 @@ structure['Top']  = {
                   'isSignal' : 0,
                   'isData'   : 0
                   }
-structure['VgS1_L']  = {
+structure['VgS1'] = {
                   'isSignal' : 0,
                   'isData'   : 0
                   }
-structure['VgS1_H']  = {
-                  'isSignal' : 0,
-                  'isData'   : 0
-                  }
+#structure['VgS1_H']  = {
+#                  'isSignal' : 0,
+#                  'isData'   : 0
+#                  }
 structure['WW']  = {
                   'isSignal' : 0,
                   'isData'   : 0
