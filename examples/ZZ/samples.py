@@ -163,10 +163,10 @@ samples['WZ_QCD'] = {
 
 ## ZZ To 4L && ZZ To 2Q2L ##
 
-samples['ZZ'] = {  'name'  : nanoGetSampleFiles(mcDirectory,'ZZTo2Q2L_mllmin4p0') + \
-                             nanoGetSampleFiles(mcDirectory,'ZZTo2L2Nu') + \
-                             nanoGetSampleFiles(mcDirectory,'ZZTo4L'),
-                    'weight' :  XSWeight+'*'+SFweight+'*((nLepton==3)*PromptGenLepMatch3l + (nLepton>3)*PromptGenLepMatch4l)*'+METFilter_MC,
+samples['ZZ'] = {  'name'  :   nanoGetSampleFiles(mcDirectory,'ZZTo2L2Nu')
+                             + nanoGetSampleFiles(mcDirectory,'ZZTo2Q2L_mllmin4p0')
+                             + nanoGetSampleFiles(mcDirectory,'ZZTo4L'),
+                    'weight' :  XSWeight+'*'+SFweight+'*((nLepton==2)*PromptGenLepMatch2l + (nLepton==3)*PromptGenLepMatch3l + (nLepton>3)*PromptGenLepMatch4l)*'+METFilter_MC,
                     'FilesPerJob' : 3,
                  }
 

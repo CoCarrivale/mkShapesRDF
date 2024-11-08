@@ -104,14 +104,14 @@ groupPlot['tVx']  = {
     'fill': 1001
 }
 
-groupPlot['non-prompt']  = {
-    'nameHR':'non-Prompt', 
-    'isSignal':0, 
-    #'color': palette["LightBlue"], 
-    'color': palette2["DeadViolet"],
-    'samples':['Fake_lep_me', 'Fake_lep_em'],
-    'fill': 1001
-}
+#groupPlot['non-prompt']  = {
+#    'nameHR':'non-Prompt', 
+#    'isSignal':0, 
+#    #'color': palette["LightBlue"], 
+#    'samples':['Fake_lep_me', 'Fake_lep_em'],
+#    'color': palette2["DeadViolet"],
+#    'fill': 1001
+#}
 
 groupPlot['sm_lin_quad_cW']  = {
     'nameHR':'sm_lin_quad_cW', 
@@ -127,18 +127,18 @@ groupPlot['sm_lin_quad_cW']  = {
 
 plot = {}
 
-plot['Fake_lep_em']  = {
-    'color':Yellow, 
-    'isSignal':0, 
-    'isData':0, 
-    'scale':1.0
-}
-plot['Fake_lep_me']  = {
-    'color':Yellow,
-    'isSignal':0,
-    'isData':0,
-    'scale':1.0
-}
+#plot['Fake_lep_em']  = {
+#    'color':Yellow, 
+#    'isSignal':0, 
+#    'isData':0, 
+#    'scale':1.0
+#}
+#plot['Fake_lep_me']  = {
+#    'color':Yellow,
+#    'isSignal':0,
+#    'isData':0,
+#    'scale':1.0
+#}
 
 
 plot['VgS_H']  = {

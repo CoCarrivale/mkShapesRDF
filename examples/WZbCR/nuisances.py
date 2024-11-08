@@ -204,7 +204,7 @@ nuisances['pdf_weight'] = {
     'name'  : 'pdf',
     'kind'  : 'weight_envelope',
     'type'  : 'shape',
-    'samples' :  { s: [' Alt(LHEPdfWeight,'+str(i)+', 1.)' for i in range(0,103)] for s in mc},
+    'samples' :  { s: [' Alt(LHEPdfWeight,'+str(i)+', 1.)' for i in range(0,103)] for s in mc}, 
 }
 
 ## QCD scale ##
@@ -216,7 +216,7 @@ for sample in mcSM:
                 'type'  : 'shape',
                 'samples'  :  { k:["LHEScaleWeight[0]", "LHEScaleWeight[8]"] for k in mcSM },
         }
-
+        
 variations = [
     'LHEScaleWeight[0]',
     'LHEScaleWeight[1]',

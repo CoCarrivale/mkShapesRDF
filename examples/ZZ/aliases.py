@@ -29,7 +29,7 @@ aliases['tauVeto_wz'] = {
 
 # -------- lepton misidentification SF
 aliases['__chargeflip_w'] = {
-    'linesToAdd': ['#include "/afs/cern.ch/user/c/ccarriva/mkShapesRDF/examples/WZSR/mischarge_sf.cc"\n'],
+    'linesToAdd': ['#include "/afs/cern.ch/user/c/ccarriva/mkShapesRDF/examples/ZZ/mischarge_sf.cc"\n'],
     'samples': OSsamples
 }
 aliases['chargeflip_w'] = {

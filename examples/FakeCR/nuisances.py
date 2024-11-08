@@ -204,7 +204,7 @@ nuisances['pdf_weight'] = {
     'name'  : 'pdf',
     'kind'  : 'weight_envelope',
     'type'  : 'shape',
-    'samples' :  { s: [' Alt(LHEPdfWeight,'+str(i)+', 1.)' for i in range(0,103)] for s in mc},
+    'samples' :  { s: [' Alt(LHEPdfWeight,'+str(i)+', 1.)' for i in range(0,103)] for s in mc}, 
 }
 
 ## QCD scale ##
