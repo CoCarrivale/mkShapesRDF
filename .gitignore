@@ -10,6 +10,7 @@ examples/*/*/
 **~
 mkShapesRDF/processor/condor/*
 mkShapesRDF/processor/data/jsonpog*
+examples/2016and2017
 start.sh
 *build*
 *html*

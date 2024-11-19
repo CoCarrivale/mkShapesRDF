@@ -34,7 +34,7 @@ variables['ptl2']  = {   'name': 'Alt(Lepton_pt,1,-9999.)',
                            }
 
 variables['mjj']  = {  'name': 'mjj', # for comparison with paper (ww)
-                       'range': (15,0,600),
+                       'range': ([500,650,800, 1000,1200, 1500, 1800, 2300, 3000],),
                        'xaxis': 'mjj [GeV]',
                        'fold': 3,
                        }
@@ -61,7 +61,7 @@ variables['mll_v2']  = {   'name': 'mll',
 
 # WWSR
 variables['mll_mjj_v2']  = {   'name': 'mll:mjj', # same as the paper for 2D fitting
-                               'range' : ([20,80,140,240,600],[0,100,200,300,400,500]),
+                               'range' : ([20,80,140,240,600],[500,650,800, 1000,1200, 1500, 1800, 2300, 3000]),
                                'xaxis' : 'mll:mjj [GeV]',
                                'fold' : 3,
 #                               'doWeight' : 1,
