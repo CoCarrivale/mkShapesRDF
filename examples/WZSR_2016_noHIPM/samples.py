@@ -1,9 +1,9 @@
 import os, glob
-mcProduction = 'Summer20UL17_106x_nAODv9_Full2017v9'
-dataReco = 'Run2017_UL2017_nAODv9_Full2017v9'
-mcSteps = 'MCl1loose2017v9__MCCorr2017v9NoJERInHorn__l2tightOR2017v9'
-fakeSteps = 'DATAl1loose2017v9__l2loose__fakeW'
-dataSteps = 'DATAl1loose2017v9__l2loose__l2tightOR2017v9'
+mcProduction = 'Summer20UL16_106x_nAODv9_noHIPM_Full2016v9'
+dataReco = 'Run2016_UL2016_nAODv9_noHIPM_Full2016v9'
+mcSteps = 'MCl1loose2016v9__MCCorr2016v9NoJERInHorn__l2tightOR2016v9'
+fakeSteps = 'DATAl1loose2016v9__l2loose__fakeW'
+dataSteps = 'DATAl1loose2016v9__l2loose__l2tightOR2016v9'
 
 ##############################################
 ###### Tree base directory for the site ######
@@ -30,7 +30,7 @@ searchFiles = SearchFiles()
 
 useXROOTD = False
 redirector = 'root://eoscms.cern.ch/'
-redirector2 = 'root://eoshome-c.cern.ch/' 
+redirector2 = 'root://eoshome-c.cern.ch/'
 
 ## For SM ##
 
@@ -39,7 +39,7 @@ def nanoGetSampleFiles(path, name):
     if limitFiles != -1 and len(_files) > limitFiles:
         return [(name, _files[:limitFiles])]
     else:
-    	return  [(name, _files)]
+        return  [(name, _files)]
     
 ## For EFT ##
 
@@ -48,8 +48,8 @@ def nanoGetSampleFiles2(path, name):
     if limitFiles != -1 and len(_files) > limitFiles:
         return [(name, _files[:limitFiles])]
     else:
-    	return  [(name, _files)]
-
+        return  [(name, _files)]
+        
 def CombineBaseW(samples, proc, samplelist):
     _filtFiles = list(filter(lambda k: k[0] in samplelist, samples[proc]['name']))
     _files = list(map(lambda k: k[1], _filtFiles))
@@ -86,11 +86,9 @@ def addSampleWeight(samples, sampleName, sampleNameType, weight):
 ################################################
 
 DataRun = [
-    ['B','Run2017B-UL2017-v1'],
-    ['C','Run2017C-UL2017-v1'],
-    ['D','Run2017D-UL2017-v1'],
-    ['E','Run2017E-UL2017-v1'],
-    ['F','Run2017F-UL2017-v1']
+    ['F','Run2016F-UL2016-v1'],
+    ['G','Run2016G_UL2016-v1'],
+    ['H','Run2016H_UL2016-v1'],
 ]
 
 DataSets = ['MuonEG','SingleMuon','SingleElectron','DoubleMuon', 'DoubleEG']
@@ -109,8 +107,9 @@ DataTrig = {
 
 Nlep='3'
 
-eleWP = 'mvaFall17V2Iso_WP90_SS_tthmva_70'
-muWP  = 'cut_Tight_HWWW_tthmva_80'
+eleWP = 'mvaFall17V2Iso_WP90_tthmva_70'
+#muWP  = 'cut_Tight_HWWW_tthmva_80'
+muWP = 'cut_Tight80x_tthmva_80'
 
 LepWPCut        = 'LepCut'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
 LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
@@ -177,7 +176,7 @@ samples['ZZ'] = {  'name'  : nanoGetSampleFiles(mcDirectory,'ZZTo2Q2L_mllmin4p0'
 
 files = nanoGetSampleFiles(mcDirectory, 'TTZToLLNuNu_M-10') + \
         nanoGetSampleFiles(mcDirectory, 'TTWJetsToLNu') + \
-        nanoGetSampleFiles(mcDirectory, 'tZq_ll')
+        nanoGetSampleFiles(mcDirectory, 'tZq_ll_4f')
 samples['tVx'] = {
     'name': files,
     'weight': mcCommonWeight,
@@ -234,7 +233,7 @@ samples['VVV'] = {
 #files = nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') + \
 #        nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \
 #        nanoGetSampleFiles(mcDirectory, 'ST_tW_top') + \
-#        nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop')      
+#        nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop')
 #samples['Top'] = {
 #    'name': files,
 #    'weight': mcCommonWeight,
@@ -270,10 +269,19 @@ samples['Fake_lep'] = {
 
 for _, sd in DataRun:
   for pd in DataSets:
-    files = nanoGetSampleFiles(fakeDirectory, pd + '_' + sd)
+    tag = pd + '_' + sd
+    if 'DoubleMuon' in pd and 'Run2016G' in sd:
+        print("sd      = {}".format(sd))
+        print("pd      = {}".format(pd))
+        print("Old tag = {}".format(tag))
+        tag = tag.replace('v1','v2')
+        print("New tag = {}".format(tag))
+
+    files = nanoGetSampleFiles(fakeDirectory,tag)
+
     samples['Fake_lep']['name'].extend(files)
     samples['Fake_lep']['weights'].extend([DataTrig[pd]] * len(files))
-    addSampleWeight(samples, 'Fake_lep', pd + '_' + sd, DataTrig[pd])
+    addSampleWeight(samples, 'Fake_lep', tag, DataTrig[pd])
 
 samples['Fake_lep']['subsamples'] = {
   'em': 'abs(Lepton_pdgId[0]) == 11',
@@ -294,12 +302,19 @@ samples['DATA'] = {
 
 for _, sd in DataRun:
   for pd in DataSets:
-    files = nanoGetSampleFiles(dataDirectory, pd + '_' + sd)
+    tag = pd + '_' + sd
+    if 'DoubleMuon' in pd and 'Run2016G' in sd: 
+        print("sd      = {}".format(sd))
+        print("pd      = {}".format(pd))
+        print("Old tag = {}".format(tag))
+        tag = tag.replace('v1','v2')
+        print("New tag = {}".format(tag))
+
+    files = nanoGetSampleFiles(dataDirectory,tag)
+
     samples['DATA']['name'].extend(files)
     samples['DATA']['weights'].extend([DataTrig[pd]] * len(files))
-    addSampleWeight(samples, 'DATA', pd + '_' + sd, DataTrig[pd])
-
-
+    addSampleWeight(samples, 'DATA', tag, DataTrig[pd])
 
 ###########################################
 #############  EFT SIGNALS  ###############
@@ -309,4 +324,3 @@ for _, sd in DataRun:
 
 #samples = {k:v for k,v in samples.items() if 'sm' not in k and 'lin' not in k and 'quad' not in k} # SM ONLY
 samples = {k:v for k,v in samples.items()} # SM + EFT
-
