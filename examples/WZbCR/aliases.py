@@ -8,7 +8,7 @@ aliases = {}
 aliases = OrderedDict()
 
 bAlgo = 'DeepB'
-bWP = '0.4184'
+bWP = '0.7527'
 
 eleWP = 'mvaFall17V2Iso_WP90_SS_tthmva_70'
 muWP  = 'cut_Tight_HWWW_tthmva_80'
@@ -115,11 +115,11 @@ aliases['fakeWStatMuDown'] = {
 #medium 0.4184
 #tight 0.7527
 aliases['bVeto'] = {
-    'expr': '(Sum(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.4184) == 0)'
+    'expr': '(Sum(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.7527) == 0)'
 }
 
 aliases['bReq'] = {
-    'expr': '(Sum(CleanJet_pt > 30. && abs(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.4184) >= 1)'
+    'expr': '(Sum(CleanJet_pt > 30. && abs(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.7527) >= 1)'
 }
 aliases['bVetoSF'] = {
     'expr': 'TMath::Exp(Sum(LogVec((CleanJet_pt>20 && abs(CleanJet_eta)<2.5)*Take(Jet_btagSF_deepcsv_shape,CleanJet_jetIdx)+1*(CleanJet_pt<=20 || abs(CleanJet_eta)>=2.5))))',

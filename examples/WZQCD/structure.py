@@ -6,7 +6,7 @@ structure = {}
 #
 
 structure['sm']  = {
-                  'isSignal' : 0,
+                  'isSignal' : 1,
                   'isData'   : 0
                   }
 structure['sm_lin_quad_cW']  = {

@@ -247,6 +247,14 @@ nuisances['norm_WZb']  = {
                'type'  : 'rateParam',
               }
 
+nuisances['norm_WZQCD']  = {
+               'name'  : 'norm_WZQCD',
+               'samples'  : {
+                   'WZ_QCD' : '1.00',
+                   },
+               'type'  : 'rateParam',
+              }
+
 ## Stats ##
 
 autoStats = True

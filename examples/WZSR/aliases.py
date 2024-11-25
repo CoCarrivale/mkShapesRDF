@@ -8,7 +8,7 @@ aliases = {}
 aliases = OrderedDict()
 
 bAlgo = 'DeepB'
-bWP = '0.4184'
+bWP = '0.7527'
 
 eleWP = 'mvaFall17V2Iso_WP90_SS_tthmva_70'
 muWP  = 'cut_Tight_HWWW_tthmva_80'

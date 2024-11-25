@@ -27,5 +27,5 @@ ztag ='WH3l_mlll > 100 \
 || (abs(mllTwoThree - 91) < 15 && Alt(Lepton_pdgId,1,-9999) * Alt(Lepton_pdgId,2,-9999) < 0))'
 
 # ----------------------------------
-cuts['WZ']= wz +' && ' + wz_zmass + ' && bVeto &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'
+cuts['WZQCD']= wz +' && ' + wz_zmass + ' && bVeto &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'
 #cuts['WZb']= wz + ' && ' + wz_zmass + ' && bReq &&'+zlep_wz+'&&'+ztag+'&&'+triple_charge_wz+'&& tauVeto_wz'

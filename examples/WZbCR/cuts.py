@@ -2,7 +2,7 @@
 cuts = {}
 # ----------------------------------
 # Jet and MET VBS-like selections
-preselections = 'Alt(CleanJet_pt,0,-9999.) >50 && Alt(CleanJet_pt,1,-9999.) >50 && MET_pt > 30 && mjj < 500 && mjj > 100 && abs(detajj) > 2.5'
+preselections = 'Alt(CleanJet_pt,0,-9999.) >50 && Alt(CleanJet_pt,1,-9999.) >50 && MET_pt > 30 && mjj > 300 && abs(detajj) > 2.5'
 
 # ----------------------------------
 # lepton selections for WZ
