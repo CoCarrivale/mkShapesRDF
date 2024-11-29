@@ -141,6 +141,18 @@ rwgt_quad_cHW = '(0.5*(1/1)*(1/1)*(LHEReweightingWeight[7] + LHEReweightingWeigh
 rwgt_sm_lin_quad_cHWB = '(LHEReweightingWeight[9])'
 rwgt_quad_cHWB = '(0.5*(1/1)*(1/1)*(LHEReweightingWeight[9] + LHEReweightingWeight[10] - 2*LHEReweightingWeight[0]))'
 
+rwgt_sm_lin_quad_mixed_cW_cHbox = '(LHEReweightingWeight[11])'
+rwgt_sm_lin_quad_mixed_cW_cHDD = '(LHEReweightingWeight[12])'
+rwgt_sm_lin_quad_mixed_cW_cHW = '(LHEReweightingWeight[13])'
+rwgt_sm_lin_quad_mixed_cW_cHWB = '(LHEReweightingWeight[14])'
+rwgt_sm_lin_quad_mixed_cHbox_cHDD = '(LHEReweightingWeight[15])'
+rwgt_sm_lin_quad_mixed_cHbox_cHW = '(LHEReweightingWeight[16])'
+rwgt_sm_lin_quad_mixed_cHbox_cHWB = '(LHEReweightingWeight[17])'
+rwgt_sm_lin_quad_mixed_cHDD_cHW = '(LHEReweightingWeight[18])'
+rwgt_sm_lin_quad_mixed_cHDD_cHWB = '(LHEReweightingWeight[19])'
+rwgt_sm_lin_quad_mixed_cHW_cHWB = '(LHEReweightingWeight[20])'
+
+
 ###########################################
 #############  BACKGROUNDS  ###############
 ###########################################
@@ -400,6 +412,13 @@ files = nanoGetSampleFiles2('/eos/user/c/ccarriva/postproc/test/Summer20UL18_106
 samples['quad_cHWB'] = {
     'name': files,
     'weight': mcCommonWeight+'*'+ rwgt_quad_cHWB,
+    'FilesPerJob': 4
+}
+
+files = nanoGetSampleFiles2('/eos/user/c/ccarriva/postproc/test/Summer20UL18_106x_nAODv9_Full2018v9/MCl1loose2018v9__MCCorr2018v9NoJERInHorn__l2tightOR2018v9', 'WZdim6')
+samples['sm_lin_quad_mixed_cW_cHbox'] = {
+    'name': files,
+    'weight': mcCommonWeight+'*'+ rwgt_sm_lin_quad_mixed_cW_cHbox,
     'FilesPerJob': 4
 }
 
